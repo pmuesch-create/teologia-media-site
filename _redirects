@@ -1,9 +1,2 @@
-# Cloudflare Pages clean URL mappings (explicit, defensive — works without config assumptions)
-/camino-de-dios       /camino-de-dios.html       200
-/profecias-biblicas   /profecias-biblicas.html   200
-/about                /about.html                200
-/privacy              /privacy.html              200
-/terms                /terms.html                200
-
-# 404 fallback
-/*                    /404.html                  404
+# 404 fallback for unmatched routes
+/*    /404.html    404
