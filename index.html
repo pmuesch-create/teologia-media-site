@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Teología en español con calidad de documental. Dos canales de YouTube dedicados a la Sagrada Escritura y a la tradición profética católica.">
+<meta name="description" content="Teología católica en español con calidad de documental. Un canal de YouTube con cuatro temas dedicados a la Sagrada Escritura y a la tradición católica.">
 <meta name="theme-color" content="#faf7f0">
 <meta property="og:title" content="teologia.media - Teología católica en español">
-<meta property="og:description" content="Teología en español con calidad de documental. Dos canales de YouTube dedicados a la Sagrada Escritura y a la tradición profética católica.">
+<meta property="og:description" content="Teología católica en español con calidad de documental. Un canal de YouTube con cuatro temas dedicados a la Sagrada Escritura y a la tradición católica.">
 <meta property="og:url" content="https://teologia.media/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="teologia.media">
@@ -33,14 +33,16 @@
   h1 em{color:var(--accent);font-style:normal;}
   .lead{font-size:1.2rem;color:var(--muted);max-width:560px;margin:0 auto 1rem;line-height:1.55;}
   .sep{width:48px;height:1px;background:var(--accent);margin:2.5rem auto;border:0;}
-  .channels{display:grid;grid-template-columns:1fr;gap:1.5rem;margin:3rem 0 4rem;}
-  @media(min-width:720px){.channels{grid-template-columns:1fr 1fr;gap:2rem;}}
-  .card{padding:2rem 1.75rem;border:1px solid var(--line);text-decoration:none;color:var(--text);display:flex;flex-direction:column;transition:border-color .2s,transform .2s;background:#fffdf7;}
+  .channel{margin:3rem 0 4rem;}
+  .card{padding:2.25rem 2rem;border:1px solid var(--line);text-decoration:none;color:var(--text);display:flex;flex-direction:column;transition:border-color .2s,transform .2s;background:#fffdf7;}
   .card:hover{border-color:var(--accent);transform:translateY(-2px);}
-  .card h2{color:var(--accent);margin-bottom:.5rem;font-size:1.4rem;font-weight:500;}
-  .card .tagline{font-style:italic;color:var(--muted);font-size:1rem;margin-bottom:1rem;}
-  .card p{font-size:1rem;color:var(--text);line-height:1.5;}
-  .card .more{margin-top:auto;padding-top:1rem;font-family:var(--sans);font-size:.85rem;color:var(--accent);letter-spacing:.04em;}
+  .card h2{color:var(--accent);margin-bottom:.5rem;font-size:1.5rem;font-weight:500;}
+  .card .tagline{font-style:italic;color:var(--muted);font-size:1.05rem;margin-bottom:1rem;}
+  .card p{font-size:1rem;color:var(--text);line-height:1.55;margin-bottom:1.25rem;}
+  .temas-list{list-style:none;margin:0 0 1.5rem;padding:0;font-family:var(--sans);font-size:.88rem;color:var(--muted);}
+  .temas-list li{padding:.4rem 0;border-bottom:1px solid var(--line);letter-spacing:.01em;}
+  .temas-list li:last-child{border-bottom:0;}
+  .card .more{margin-top:auto;padding-top:.5rem;font-family:var(--sans);font-size:.85rem;color:var(--accent);letter-spacing:.04em;}
   footer{max-width:var(--max);margin:4rem auto 0;width:100%;padding-top:2rem;border-top:1px solid var(--line);font-family:var(--sans);font-size:.85rem;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
   footer a{color:var(--muted);text-decoration:none;}
   footer a:hover{color:var(--accent);}
@@ -53,28 +55,30 @@
   <a href="/" class="brand">teologia.media</a>
   <nav>
     <a href="/camino-de-dios">Camino de Dios</a>
-    <a href="/profecias-biblicas">Profecías Bíblicas</a>
+    <a href="/about">Nosotros</a>
+    <a href="/privacy">Privacidad</a>
+    <a href="/terms">Términos</a>
   </nav>
 </header>
 
 <main>
   <section class="hero">
     <h1>Teología católica <em>en español</em>, con calidad de documental.</h1>
-    <p class="lead">Dos canales dedicados a abrir la Sagrada Escritura y la tradición católica con la seriedad, la reverencia y la hondura que el tema merece.</p>
+    <p class="lead">Un canal. Cuatro temas. Una convicción: la Sagrada Escritura y la tradición católica merecen la hondura, la reverencia y la calidad documental que el tema exige.</p>
     <hr class="sep">
   </section>
 
-  <section class="channels">
+  <section class="channel">
     <a href="/camino-de-dios" class="card">
       <h2>Camino de Dios</h2>
       <p class="tagline">El texto, tomado de la mano.</p>
-      <p>Exégesis bíblica al modo de un explicador documental. Cada video abre sobre el versículo, descubre el hebreo o el griego que clarifica la palabra, y recorre el pasaje paso a paso - sin sermón, sin sensacionalismo.</p>
-      <span class="more">Conocer el canal →</span>
-    </a>
-    <a href="/profecias-biblicas" class="card">
-      <h2>Profecías Bíblicas</h2>
-      <p class="tagline">La tradición profética, leída en contexto.</p>
-      <p>La literatura profética de la Iglesia - Isaías, Daniel, Apocalipsis, los Padres, Fátima, Guadalupe - leída con el rigor de la hermenéutica judía y la sensibilidad de la tradición católica. Sin clickbait, sin fear-bait.</p>
+      <p>Un canal de teología católica en español producido con cuidado editorial humano. Cuatro temas distintos, una misma convicción.</p>
+      <ul class="temas-list">
+        <li>Historias y Conceptos Bíblicos</li>
+        <li>Biblia y Ciencia</li>
+        <li>Antiguo prefigura al Nuevo</li>
+        <li>Biblias Comparadas</li>
+      </ul>
       <span class="more">Conocer el canal →</span>
     </a>
   </section>
