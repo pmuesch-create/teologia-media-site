@@ -46,13 +46,32 @@
   footer a{color:var(--muted);text-decoration:none;}
   footer a:hover{color:var(--accent);}
   footer nav{display:flex;gap:1.25rem;flex-wrap:wrap;}
+  header.top{position:relative;}
+  header.top .burger{display:none;background:none;border:0;cursor:pointer;padding:.5rem;width:44px;height:44px;flex-direction:column;align-items:center;justify-content:center;gap:4px;}
+  header.top .burger-line{display:block;width:22px;height:2px;background:var(--text);transition:transform .3s ease,opacity .3s ease;}
+  @media(max-width:767px){
+    header.top{align-items:center;}
+    header.top .burger{display:flex;}
+    header.top nav{position:absolute;top:calc(100% + .25rem);left:0;right:0;flex-direction:column;gap:0;background:#fffdf7;border-top:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:0 6px 16px rgba(0,0,0,.06);max-height:0;overflow:hidden;overscroll-behavior:contain;transition:max-height .3s ease;z-index:10;}
+    header.top.open nav{max-height:420px;}
+    header.top nav a{padding:1rem 1.5rem;border-bottom:1px solid var(--line);font-size:1rem;min-height:44px;display:flex;align-items:center;}
+    header.top nav a:last-child{border-bottom:0;}
+    header.top.open .burger-line:nth-child(1){transform:translateY(6px) rotate(45deg);}
+    header.top.open .burger-line:nth-child(2){opacity:0;}
+    header.top.open .burger-line:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+  }
 </style>
 </head>
 <body>
 
 <header class="top">
   <a href="/" class="brand">teologia.media</a>
-  <nav>
+  <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-nav">
+    <span class="burger-line"></span>
+    <span class="burger-line"></span>
+    <span class="burger-line"></span>
+  </button>
+  <nav id="primary-nav" role="navigation">
     <a href="/camino-de-dios">Camino de Dios</a>
     <a href="/about">Nosotros</a>
     <a href="/privacy">Privacidad</a>
@@ -134,5 +153,59 @@
   </nav>
 </footer>
 
+<script>
+(function(){
+  var header = document.querySelector('header.top');
+  if(!header) return;
+  var burger = header.querySelector('.burger');
+  var nav = header.querySelector('nav');
+  if(!burger || !nav) return;
+
+  function sync(){
+    if(window.innerWidth >= 768){
+      nav.removeAttribute('aria-hidden');
+      if(header.classList.contains('open')) close();
+    } else {
+      nav.setAttribute('aria-hidden', header.classList.contains('open') ? 'false' : 'true');
+    }
+  }
+  function open(){
+    header.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+    burger.setAttribute('aria-label', 'Cerrar menú');
+    nav.setAttribute('aria-hidden', 'false');
+  }
+  function close(){
+    header.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Abrir menú');
+    if(window.innerWidth < 768) nav.setAttribute('aria-hidden', 'true');
+  }
+
+  burger.addEventListener('click', function(e){
+    e.stopPropagation();
+    header.classList.contains('open') ? close() : open();
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A') close();
+  });
+  document.addEventListener('click', function(e){
+    if(header.classList.contains('open') && !header.contains(e.target)) close();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && header.classList.contains('open')){
+      close();
+      burger.focus();
+    }
+  });
+  var resizeTimer;
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(sync, 100);
+  });
+
+  sync();
+})();
+</script>
 </body>
 </html>
