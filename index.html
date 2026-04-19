@@ -24,6 +24,8 @@
   @media(max-width:719px){body{font-size:18px;}}
   header.top{max-width:var(--max);margin:0 auto 3rem;width:100%;font-family:var(--sans);font-size:.9rem;letter-spacing:.04em;display:flex;justify-content:space-between;align-items:baseline;}
   header.top a.brand{color:var(--text);text-decoration:none;font-family:var(--serif);font-size:1.1rem;letter-spacing:.02em;}
+  .brand{display:inline-flex;align-items:center;gap:.5rem;}
+  .brand-icon{width:18px;height:18px;display:inline-block;vertical-align:middle;}
   header.top nav{display:flex;gap:1.5rem;}
   header.top nav a{color:var(--muted);text-decoration:none;}
   header.top nav a:hover{color:var(--accent);}
@@ -66,7 +68,7 @@
 <body>
 
 <header class="top">
-  <a href="/" class="brand">teologia.media</a>
+  <a href="/" class="brand"><img src="/favicon.svg" alt="" aria-hidden="true" class="brand-icon">teologia.media</a>
   <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-nav">
     <span class="burger-line"></span>
     <span class="burger-line"></span>
